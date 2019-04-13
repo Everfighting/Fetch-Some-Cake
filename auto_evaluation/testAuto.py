@@ -12,11 +12,11 @@ class Browser():
         browser=self.browser
         browser.get(login_url)
         account = browser.find_element_by_name('Account')
-        account.send_keys('')   # 输入账户,   input('账户:')
+        account.send_keys('142733199703250313')   # 输入账户,   input('账户:')
         password = browser.find_element_by_xpath("//input[@name='PassWord']")
-        password.send_keys('666666')  # 输入密码,   input('密码:')
+        password.send_keys('970217')  # 输入密码,   input('密码:')
 
-        submit = browser.find_element_by_xpath("//button[@type='submit']")
+        submit = browser.find_element_by_xpath("//button")
         submit.click()  # 点击提交按钮
 
     def enter_evaluation_page(self):
@@ -39,15 +39,24 @@ class Browser():
         browser = self.browser
         first_choice = browser.find_elements_by_xpath("//tbody[@id='topic']/tr//td[3]/label[1]")
         try:
+            browser.implicitly_wait(10)
             for i in first_choice:
                 i.click()
             text_evaluate = browser.find_elements_by_xpath("//textarea")
             for i in text_evaluate:
                 i.send_keys('喵')
-            submitbutton = browser.find_element_by_xpath('//button')
-            submitbutton.click()
+
+            #   # 点击完提交按钮后要等它反应到评测完成的跳转页面
         except Exception:
-            pass
+            try:
+                submitbutton = browser.find_element_by_xpath('//button')
+                submitbutton.click()
+                time.sleep(10)
+            except Exception:
+                pass
+
+
+
 
 
 if __name__ == '__main__':
@@ -67,7 +76,7 @@ if __name__ == '__main__':
 
         mybrowser.login()
         mybrowser.enter_evaluation_page()
-        # mybrowser.evaluate()
+        mybrowser.evaluate()
         browser.quit()
         print('{:-^30}'.format('Finish Evaluation'))
     except Exception as e:

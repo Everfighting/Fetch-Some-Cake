@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css"></style>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="js/distpicker.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#target').distpicker();
+
+            $('#target1').distpicker({
+                province: '---- 所在省 ----',
+                city: '---- 所在市 ----',
+                district: '---- 所在区 ----'
+            })
+
+            $('#target2').distpicker({
+                province: '浙江省',
+                city: '杭州市',
+                district: '上城区'
+            })
+        })
+    </script>
+</head>
+<body>
+<div data-toggle="distpicker">
+    <p>1.给div设置attr</p>
+    <select></select>
+    <select></select>
+    <select></select>
+</div>
+
+<div data-toggle="distpicker">
+    <p>2.通过select的attr自定义placeholders </p>
+    <select data-province="---- 选择省 ----"></select>
+    <select data-city="---- 选择市 ----"></select>
+    <select data-district="---- 选择区 ----"></select>
+</div>
+
+<div data-toggle="distpicker">
+    <p>3.自定义初始显示地区</p>
+    <select data-province="浙江省"></select>
+    <select data-city="杭州市"></select>
+    <select data-district="西湖区"></select>
+</div>
+
+<div id="target">
+    <p>4.js回调初始化</p>
+    <select></select>
+    <select></select>
+    <select></select>
+</div>
+
+<div id="target1">
+    <p>5.js回调自定义placeholders</p>
+    <select></select>
+    <select></select>
+    <select></select>
+</div>
+
+<div id="target2">
+    <p>6.js回调初始化div自定义默认显示地区</p>
+    <select></select>
+    <select></select>
+    <select></select>
+</div>
+
+<div data-toggle="distpicker" data-autoselect="3" data-province="浙江省">
+    <p>7.通过div-attr设置</p>
+    <p>div data-toggle="distpicker" data-autoselect="3" data-province="浙江省"></p>
+    <select></select>
+    <select></select>
+    <select></select>
+</div>
+<p>只显示2个/1个</p>
+<div data-toggle="distpicker">
+    <select></select>
+    <select></select>
+</div>
+
+<div data-toggle="distpicker">
+    <select></select>
+</div>
+
+<p>默认显示(省/市/地区)</p>
+<div data-toggle="distpicker" data-autoselect="1">
+    <select></select>
+    <select></select>
+    <select></select>
+</div>
+<div data-toggle="distpicker" data-autoselect="2">
+    <select></select>
+    <select></select>
+    <select></select>
+</div>
+<div data-toggle="distpicker" data-autoselect="3">
+    <select></select>
+    <select></select>
+    <select></select>
+</div>
+
+<div data-toggle="distpicker" data-placeholder="false">
+    <p>关闭placeholder</p>
+    <p>data-placeholder="false"</p>
+    <select></select>
+    <select></select>
+    <select></select>
+</div>
+
+<div data-toggle="distpicker" data-value-type="code">
+    <p>通过地区邮编自定义默认地区显示</p>
+    <p>data-province="330000"</p>
+    <select data-province="330000"></select>
+    <select data-city="330100"></select>
+    <select data-district="330106"></select>
+</div>
+</body>
+</html>
