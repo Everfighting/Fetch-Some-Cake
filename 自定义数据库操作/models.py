@@ -3,6 +3,14 @@ import os
 import time
 
 import pymysql
+# from .setting import  database
+# for  i in database:
+#     print(i)
+# 报错
+# ModuleNotFoundError: No module named '__main__.myconfig'; '__main__' is not a package
+
+
+
 
 # 数据库相关配置
 database = {
