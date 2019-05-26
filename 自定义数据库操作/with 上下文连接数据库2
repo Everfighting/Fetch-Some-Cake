@@ -26,8 +26,8 @@ class DB():
     def __init__(self):
         self.conn = pymysql.connect(**config)
     
-        with self.conn as cursor:  # 重要
-            
+        with self.conn as cursor:  
+            # cursor ：<pymysql.cursors.Cursor object at 0x7f13b7f95128>
             cursor.execute(exists_table_sql, 't_mv')
             if len(cursor.fetchall()) == 0:
                 cursor.execute(create_table_sql)
